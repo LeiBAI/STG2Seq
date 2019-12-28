@@ -1,5 +1,5 @@
 # STG2Seq
- Pytorch implementation of Paper ["STG2Seq: Spatial-temporal Graph to Sequence Model for Multi-step Passenger Demand Forecasting"](<https://www.ijcai.org/proceedings/2019/0274.pdf>)
+ The implementation of Paper ["STG2Seq: Spatial-temporal Graph to Sequence Model for Multi-step Passenger Demand Forecasting"](<https://www.ijcai.org/proceedings/2019/0274.pdf>)
 
 If you find the code is useful, please cite our paper
 
