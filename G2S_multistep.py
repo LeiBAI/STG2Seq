@@ -1,4 +1,4 @@
-from model.STGCN.gcn_layer import *
+from gcn_layer import *
 import tensorflow as tf
 from lib.metrics import MAE, RMSE, MAPE, MARE, R2
 

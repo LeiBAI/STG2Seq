@@ -11,7 +11,7 @@ from RootPATH import base_dir
 base_dir = os.path.realpath(base_dir)
 #config dataset and model
 
-from STGCN.G2S_multistep import Graph
+from G2S_multistep import Graph
 
 #config
 DATASET = 'NYC'
@@ -20,17 +20,17 @@ SAVE_SUMMARY = False
 PLOT_DETAIL  = False
 
 if DATASET == 'SY':
-    from model.STGCN.params_stgcn import params_sy as params
+    from params_stg2seq import params_SY as params
     didi_data = np.loadtxt(os.path.join(base_dir, 'data/Didi_SY/didi_order_hour_grid.csv'),
                            delimiter=',', skiprows=1)
     adj = generate_graph_with_data(didi_data, 144, threshold=params.threshold)
 elif DATASET == 'SY_IR':
-    from model.STGCN.params_stgcn import params_sy_ir as params
+    from params_stgcn import params_SY_IR as params
     didi_data = np.loadtxt(os.path.join(base_dir, 'data/Didi_SY/didi_order_hour.csv'),
                            delimiter=',', skiprows=1)
     adj = generate_graph_with_data(didi_data, 144, threshold=params.threshold)
 elif DATASET == 'NYC':
-    from model.STGCN.params_stgcn import params_nyc as params
+    from params_stg2seq import params_NYC as params
     bike_data = h5py.File(os.path.join(base_dir, 'data/BikeNYC/NYC14_M16x8_T60_NewEnd.h5'), 'r')
     bike_data = bike_data['data'].value
     # reshape the data format to [sample_nums, region_nums, dims], 4392 = 24*183
@@ -39,7 +39,7 @@ elif DATASET == 'NYC':
     adj = generate_graph_with_data(bike_data, params.test_days * 24, threshold=params.threshold)
 elif DATASET == 'BJ':
     from data.TaxiBJ.load_dataset_BJ import remove_incomplete_days, load_stdata
-    from model.STGCN.params_stgcn import params_bj as params
+    from params_stg2seq import params_BJ as params
     path = os.path.join(base_dir, 'data/TaxiBJ/BJ15_M32x32_T30_InOut.h5')
     # BJ dataset has some incomplete days
     taxi_data, timestamps = load_stdata(path)

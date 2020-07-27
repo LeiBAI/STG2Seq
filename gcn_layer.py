@@ -69,14 +69,4 @@ def graph_conv(inputs, supports, dim_in, dim_out, scope='gcn',
         outputs = tf.nn.bias_add(tf.matmul(x_new, weights), biases)
     return tf.reshape(outputs, [-1, num_nodes, dim_out])
 
-if __name__ == '__main__':
-    #usecase
-    w = np.array([[0,1,0],[1,0,1],[0,1,0]])
-    L = Scaled_Laplacian(w)
-    print(L.shape)
-    node_num = w.shape[0]
-    kL = Cheb_Poly(L, 1)
-    print(kL.shape)
-
-
 
